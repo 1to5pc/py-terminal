@@ -7,4 +7,5 @@ def boot():
  if cbt == "Y":
     print("Initiating boot sequence")
  else:
+    print("Aborting boot")
     exit()
