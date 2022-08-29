@@ -8,13 +8,13 @@ def progress(percent=0, width=20):
     hashes = width * percent // 100
     blanks = width - hashes
 
-    print('\r[', hashes*'#', blanks*' ', ']', f' {percent:.0f}%', sep='',
+    print(" ", '\r[', hashes*'#', blanks*' ', ']', f' {percent:.0f}%', sep='',
         end='', flush=True)
 
 #Use the following code to use the animation
 #for i in range(101):
 #    progress(i)
 #    time.sleep(0.01)
-
+progress(i)
 # Newline so command prompt isn't on the same line
 print()
