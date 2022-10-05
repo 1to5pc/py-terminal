@@ -37,3 +37,4 @@ while Lp <= 1:
     print(" exit - Exit terminalx" )
  else:
     print(" Unknown command! Run 'help' for help and 'list' for a list of commands" )
+print("How did you get here?1!?")
