@@ -8,7 +8,7 @@ def progress(percent=0, width=20):
     blanks = width - hashes
     
     print('\r[', hashes*'#', blanks*' ', ']', f' {percent:.0f}%', sep='',
-        end='', flush=True)
+        end='\n', flush=True)
 
 #Use the following code to use the animation
 #for i in range(101):
