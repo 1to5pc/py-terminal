@@ -17,7 +17,7 @@ while Lp <= 1:
       time.sleep(0.3)
       print(" [OK] Python3 Opened" )
  elif cmd == "exit" :
-      print(" exiting terminalx" )
+      print(" Exiting terminalx" )
       time.sleep(0.08)
       time.sleep(0.2)
       for i in range(101):
