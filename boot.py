@@ -3,9 +3,7 @@ import time
 def boot():
  print("Initiating bootloader")
  time.sleep(0.3)
- cbt = input("Boot into pyOS 20.69? [Y/n]: ")
- cbt=cbt.upper()
- cbt = cbt.upper()
+ cbt = input("Boot into pyOS 20.69? [Y/n]: ").upper()
  if cbt == "Y" or "YES":
     print("Initiating boot sequence")
  else:
