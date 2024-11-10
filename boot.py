@@ -1,11 +1,25 @@
 #boot Sequence
 import time
+from colorama import Fore, Style, init
+import animation
+
 def boot():
- print("Initiating bootloader")
- time.sleep(0.3)
- cbt = input("Boot into pyOS 20.69? [Y/n]: ").upper()
- if cbt == "Y" or "YES":
-    print("Initiating boot sequence")
- else:
-    print("Aborting boot")
-    exit()
+    init()
+    print(f"{Fore.CYAN}╔══════════════════════════════════╗{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}║        Terminalx Bootloader      ║{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}╚══════════════════════════════════╝{Style.RESET_ALL}")
+    
+    animation.progress_spinner(1, "Initializing system")
+    
+    while True:
+        cbt = input(f"\n{Fore.YELLOW}Boot into pyOS 20.69? [Y/n]:{Style.RESET_ALL} ").lower()
+        if cbt in ['y', 'yes', '']:
+            print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Initiating boot sequence")
+            animation.progress(100, message="Loading system components")
+            print()  # New line after progress bar
+            return
+        elif cbt in ['n', 'no']:
+            print(f"\n{Fore.RED}[ABORT]{Style.RESET_ALL} Boot sequence cancelled")
+            exit()
+        else:
+            print(f"{Fore.RED}Invalid input. Please enter Y or N{Style.RESET_ALL}")

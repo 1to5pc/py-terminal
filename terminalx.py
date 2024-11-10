@@ -2,39 +2,57 @@ import time
 import os
 import animation
 import boot
+from colorama import Fore, Style, init  # For cross-platform colored output
 
-Lp = 0
+# Initialize colorama
+init()
 
-boot.boot()
-print("Welcome to Terminalx" )
-print("This is a 'terminal emulator' in python" )
-while Lp <= 1:
- cmd = input("Enter your command: ")
- if cmd == "py" :
-      print(" Entering python." )
-      time.sleep(0.16)
-      print(" P-Y-T-H-O-N" )
-      time.sleep(0.3)
-      print(" [OK] Python3 Opened" )
- elif cmd == "exit" :
-      print(" Exiting terminalx" )
-      time.sleep(0.08)
-      time.sleep(0.2)
-      for i in range(101):
-       animation.progress(i)
-       time.sleep(0.004)
-      print()
-      print(" [OK] Quit 'Terminalx'")
-      time.sleep(0.069)
-      break
- elif cmd == "help" :
-    print(" Welcome to Terminalx" )
-    print(" This a 'terminal emulator' in python" )
-    print(" To get a list of the availble commands run 'list'")
- elif cmd == "list" :
-    print(" py - Enter a :python env" )
-    print(" help - Show the help text for terminalx" )
-    print(" exit - Exit terminalx" )
- else:
-    print(" Unknown command! Run 'help' for help and 'list' for a list of commands" )
-print("How did you get here?1!?")
+# Dictionary of available commands for easier maintenance
+COMMANDS = {
+    'py': {'desc': 'Enter a Python environment', 'color': Fore.BLUE},
+    'help': {'desc': 'Show the help text for Terminalx', 'color': Fore.GREEN},
+    'exit': {'desc': 'Exit Terminalx', 'color': Fore.RED},
+    'clear': {'desc': 'Clear the terminal screen', 'color': Fore.CYAN},
+}
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def main():
+    boot.boot()
+    print(f"{Fore.CYAN}Welcome to Terminalx{Style.RESET_ALL}")
+    print("This is a 'terminal emulator' in Python")
+    
+    while True:
+        try:
+            cmd = input(f"{Fore.GREEN}➜ {Style.RESET_ALL}").strip().lower()
+            
+            if cmd == "py":
+                print(f"{Fore.BLUE}Entering Python...{Style.RESET_ALL}")
+                animation.progress_spinner(0.5)  # New spinning animation
+                print(f"{Fore.GREEN}[OK]{Style.RESET_ALL} Python3 Opened")
+                
+            elif cmd == "exit":
+                print(f"{Fore.YELLOW}Exiting Terminalx...{Style.RESET_ALL}")
+                animation.progress(100, message="Shutting down")
+                print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Quit 'Terminalx'")
+                break
+                
+            elif cmd == "clear":
+                clear_screen()
+                
+            elif cmd == "help" or cmd == "list":
+                print(f"\n{Fore.CYAN}Available Commands:{Style.RESET_ALL}")
+                for command, details in COMMANDS.items():
+                    print(f"{details['color']}{command:<10}{Style.RESET_ALL} - {details['desc']}")
+                print()
+                
+            else:
+                print(f"{Fore.RED}Unknown command!{Style.RESET_ALL} Run 'help' for available commands")
+                
+        except KeyboardInterrupt:
+            print("\nUse 'exit' to quit Terminalx")
+            continue
+
+if __name__ == "__main__":
+    main()
