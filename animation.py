@@ -5,11 +5,14 @@ import sys
 import itertools
 import threading
 
-def progress(percent=0, width=30, message="Loading"):
+def progress(percent=0, width=30, message="Loading", AnimTime=0.7):
     """Enhanced progress bar with message and percentage"""
-    filled = width * percent // 100
-    bar = '█' * filled + '░' * (width - filled)
-    print(f'\r{message}: |{bar}| {percent:.0f}%', end='', flush=True)
+    
+    for i in range(101):  # Loop through 0-100 (percent values)
+        filled = width * i // 100  # Calculate filled portion of the bar
+        bar = '█' * filled + '░' * (width - filled)  # Create the progress bar
+        print(f'\r{message}: |{bar}| {i:.0f}%', end='', flush=True)  # Update the bar in place
+        time.sleep(AnimTime / 100)  # Sleep to simulate animation time
 
 def progress_spinner(duration, message="Processing"):
     """New spinning cursor animation"""
