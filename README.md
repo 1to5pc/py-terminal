@@ -14,9 +14,9 @@ A modern, lightweight terminal emulator built in Python with a sleek interface a
 ## 📋 Requirements
 
 - Python 3.9+
-- Required packages:
+- Required dependencies:
   ```bash
-  pip install colorama google-generativeai
+  pip install -U colorama google-generativeai
   ```
 
 ## 🛠️ Installation
