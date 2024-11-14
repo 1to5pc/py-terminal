@@ -18,5 +18,5 @@ def fwrite(fName,text):
             return -1, 'Error writing to file'
     except:
         return -1, 'Error opening file'
-    
-    file.close()
+    finally:
+        file.close()
