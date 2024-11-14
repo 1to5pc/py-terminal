@@ -16,7 +16,7 @@ A modern, lightweight terminal emulator built in Python with a sleek interface a
 - Python 3.6+
 - Required packages:
   ```bash
-  pip install colorama
+  pip install colorama google-generativeai
   ```
 
 ## 🛠️ Installation
@@ -33,9 +33,14 @@ A modern, lightweight terminal emulator built in Python with a sleek interface a
 | Command | Description |
 |---------|-------------|
 | `py`    | Enter Python environment |
+| `fwrite`| Write user input to a configurable file |
+| `ls`  | List files in the working directory |
 | `help`  | Show available commands |
 | `clear` | Clear the terminal screen |
 | `exit`  | Exit Terminalx |
+
+> [!note]
+> `fwrite` uses the Gemini API and due the nature of LLMs its output may be unreliable
 
 ## 🤝 Contributing
 
@@ -56,5 +61,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-Made with ❤️ by [SenhasD](https://github.com/senhas-rgb)
+  Made with ❤️ by <a href="https://github.com/senhas-rgb" target="_blank">SenhasD</a>
 </p>
+
