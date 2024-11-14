@@ -27,7 +27,22 @@ A modern, lightweight terminal emulator built in Python with a sleek interface a
    ```bash
    python terminalx.py
    ```
-
+4. Add Your Gemini API Key to Environment Variables
+- On Linux/MacOS
+   ```bash
+   export GEMINI_APIKEY="######YOURAPIKEY######"
+   ```
+- On Windows (Command Prompt)
+   ```cmd
+   set GEMINI_APIKEY=######YOURAPIKEY######
+   ```
+- On Windows (Powershell)
+   ```powershell
+   $env:GEMINI_APIKEY="######YOURAPIKEY######"
+   ```
+   
+> [!note]
+> To get a Gemini API Key go to [Google AI Studio](https://aistudio.google.com/app/apikey)
 ## 💻 Available Commands
 
 | Command | Description |
