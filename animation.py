@@ -26,10 +26,3 @@ def progress_spinner(duration, message="Processing"):
     
     sys.stdout.write('\r' + ' ' * (len(message) + 2) + '\r')
     sys.stdout.flush()
-
-#Use the following code to use the animation
-#for i in range(101):
-#    progress(i)
-#    time.sleep(0.01)
-# Newline so command prompt isn't on the same line
-print()
