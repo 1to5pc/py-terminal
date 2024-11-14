@@ -5,17 +5,18 @@ def NatLangParser(userInput):
 
     genai.configure(api_key=os.environ["GEMINI_APIKEY"])
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-    prompt = """Convert the final input to this format("text" refers to the text that needs to be written other than the commands/order).
-    Example input: "write this is a note to myfile.txt"
-    The file_name here is "myfile.txt" and the text is "this is a note".
-    Example input 2: "write A paragraph of text. Not at all\nNew line to myfileNEW"
-    The file_name here is "myfilenEW" and the text is "A paragraph of text. Not at all\nNew line".
+    prompt = """Convert the final input into this format (where "text" refers to the content you want to write, and "file_name" refers to the file name):
+    Example 1: Input: "write this is a note to myfile.txt"
+    Here, the file_name is "myfile.txt" and the text is "this is a note".
 
+    Example 2: Input: "write A paragraph of text. Not at all\nNew line to myfileNEW"
+    Here, the file_name is "myfileNEW" and the text is "A paragraph of text. Not at all\nNew line".
 
-    Use this JSON schema without any formatting:
+    Use the following JSON schema (no extra formatting required):
 
     output = {"file_name": str, "text": str}
-    Return: output\n This is the input to parse: """ + userInput
+    
+    Parse this input and return it in the format above: """ + userInput
 
     response = model.generate_content(prompt)
     content = response.text.replace("`","").replace("json","")
