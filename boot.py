@@ -18,7 +18,7 @@ def boot():
             cbt='n'
         if cbt in ['y', 'yes', '']:
             print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Initiating boot sequence")
-            animation.progress(100, message="Loading system components")
+            animation.progress(message="Loading system components")
             print()  # New line after progress bar
             return
         elif cbt in ['n', 'no']:
