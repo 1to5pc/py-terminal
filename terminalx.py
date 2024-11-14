@@ -15,11 +15,19 @@ COMMANDS = {
     'clear': {'desc': 'Clear the terminal screen', 'color': Fore.CYAN},
 }
 
-def clear_screen():
+def clear_screen(slptime=0):
+    if slptime!=0:
+        time.sleep(slptime)
     os.system('cls' if os.name == 'nt' else 'clear')
+
+def prgmExit():
+    print(f"{Fore.YELLOW}Exiting Terminalx...{Style.RESET_ALL}")
+    animation.progress(100, message="Shutting down")
+    print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Quit 'Terminalx'")
 
 def main():
     boot.boot()
+    clear_screen(0.3)
     print(f"{Fore.CYAN}Welcome to Terminalx{Style.RESET_ALL}")
     print("This is a 'terminal emulator' in Python")
     
@@ -33,11 +41,9 @@ def main():
                 print(f"{Fore.GREEN}[OK]{Style.RESET_ALL} Python3 Opened")
                 
             elif cmd == "exit":
-                print(f"{Fore.YELLOW}Exiting Terminalx...{Style.RESET_ALL}")
-                animation.progress(100, message="Shutting down")
-                print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Quit 'Terminalx'")
+                prgmExit()
                 break
-                
+            
             elif cmd == "clear":
                 clear_screen()
                 
@@ -51,8 +57,9 @@ def main():
                 print(f"{Fore.RED}Unknown command!{Style.RESET_ALL} Run 'help' for available commands")
                 
         except KeyboardInterrupt:
-            print("\nUse 'exit' to quit Terminalx")
-            continue
+            clear_screen()
+            prgmExit()
+            break
 
 if __name__ == "__main__":
     main()
