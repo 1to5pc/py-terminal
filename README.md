@@ -1,4 +1,9 @@
-# Terminalx 🖥️
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/1to5pc/py-terminal/python-app-lint.yml?style=for-the-badge&label=Code%20Linting)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/1to5pc/py-terminal?style=for-the-badge)
+![GitHub License](https://img.shields.io/github/license/1to5pc/py-terminal?style=for-the-badge)
+
+# Terminalx 🖥️ 
 
 A modern, lightweight terminal emulator built in Python with a sleek interface and useful features.
 
@@ -66,7 +71,7 @@ Contributions are welcome! Feel free to:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
