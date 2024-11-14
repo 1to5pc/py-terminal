@@ -26,6 +26,7 @@ def prgmExit():
     print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Quit 'Terminalx'")
 
 def main():
+    clear_screen()
     boot.boot()
     clear_screen(0.3)
     print(f"{Fore.CYAN}Welcome to Terminalx{Style.RESET_ALL}")
@@ -43,7 +44,7 @@ def main():
             elif cmd == "exit":
                 prgmExit()
                 break
-            
+
             elif cmd == "clear":
                 clear_screen()
                 
