@@ -28,7 +28,7 @@ A modern, lightweight terminal emulator built in Python with a sleek interface a
 
 1. Download the latest release from the [releases tab](https://github.com/1to5pc/py-terminal/releases)
 2. Extract the ZIP file to your desired location
-3. Run `terminalx.py`:
+3. Run `terminalx.py` in the /src/ directory:
    ```bash
    python terminalx.py
    ```
