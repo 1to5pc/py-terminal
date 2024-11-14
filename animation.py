@@ -5,7 +5,7 @@ import sys
 import itertools
 import threading
 
-def progress(percent=0, width=30, message="Loading", AnimTime=0.7):
+def progress(AnimTime=0.7, message="Loading", width=30):
     """Enhanced progress bar with message and percentage"""
     
     for i in range(101):  # Loop through 0-100 (percent values)
