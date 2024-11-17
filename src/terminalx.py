@@ -11,13 +11,38 @@ init()
 
 # Dictionary of available commands for easier maintenance, with functions mapped to commands
 COMMANDS = {
-    'py': {'desc': 'Enter a Python environment', 'color': Fore.BLUE, 'func': def_cmd.py},
-    'fwrite': {'desc': 'Write user input to a configurable file', 'color': Fore.BLUE, 'func': def_cmd.fwrite},
-    'ls': {'desc': 'List files in the working directory', 'color': Fore.BLUE, 'func': def_cmd.ls},
-    'help': {'desc': 'Show the help text for Terminalx', 'color': Fore.GREEN, 'func': def_cmd.help},
-    'exit': {'desc': 'Exit Terminalx', 'color': Fore.RED, 'func': def_cmd.exit},
-    'clear': {'desc': 'Clear the terminal screen', 'color': Fore.CYAN, 'func': def_cmd.clear_screen},
+    'py': {
+        'desc': 'Enter a Python environment',
+        'color': Fore.BLUE,
+        'func': def_cmd.py
+    },
+    'fwrite': {
+        'desc': 'Write user input to a configurable file',
+        'color': Fore.BLUE,
+        'func': def_cmd.fwrite
+    },
+    'ls': {
+        'desc': 'List files in the working directory',
+        'color': Fore.BLUE,
+        'func': def_cmd.ls
+    },
+    'help': {
+        'desc': 'Show the help text for Terminalx',
+        'color': Fore.GREEN,
+        'func': def_cmd.prog_help
+    },
+    'exit': {
+        'desc': 'Exit Terminalx',
+        'color': Fore.RED,
+        'func': def_cmd.prog_exit
+    },
+    'clear': {
+        'desc': 'Clear the terminal screen',
+        'color': Fore.CYAN,
+        'func': def_cmd.clear_screen
+    }
 }
+
 
 def main():
     """ The main function called to initialize the program"""
@@ -34,7 +59,7 @@ def main():
                 COMMANDS[cmd]['func']()
 
             elif cmd == 'help':
-                def_cmd.help(COMMANDS)
+                def_cmd.prog_help(COMMANDS)
             else:
                 def_cmd.unknown_cmd(cmd)
 
