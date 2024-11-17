@@ -5,7 +5,7 @@ import time
 import os
 import sys
 
-from colorama import Fore, Style, init  # For cross-platform colored output
+from colorama import Fore, Style  # For cross-platform colored output
 
 import animation
 import file_func
@@ -18,11 +18,11 @@ def clear_screen(slptime=0):
     Args:
         slptime (float): Time to wait before clearing the screen. Default is 0.
     """
-    if slptime != 0:
+    if slptime:
         time.sleep(slptime)  # Wait before clearing
     os.system('cls' if os.name == 'nt' else 'clear')  # Clears the screen depending on the OS
 
-def exit_prgm(): 
+def exit_prgm():
     """
     Exits the program after displaying a shutdown animation and message.
     """
@@ -38,7 +38,7 @@ def py():
     animation.progress_spinner(0.5)  # Show progress spinner animation for 0.5 seconds
     print(f"{Fore.GREEN}[OK]{Style.RESET_ALL} Python3 Opened")  # Confirmation message
 
-def exit():
+def prog_exit():
     """
     Exits the program by calling `exit_prgm()` and then terminating the process.
     """
@@ -51,7 +51,7 @@ def clear():
     """
     clear_screen()  # Just calls the function without delay
 
-def help(cmd_list):
+def prog_help(cmd_list):
     """
     Displays a list of available commands and their descriptions.
     
@@ -60,7 +60,7 @@ def help(cmd_list):
     """
     print(f"\n{Fore.CYAN}Available Commands:{Style.RESET_ALL}")
     for command, details in cmd_list.items(): # List each command
-        print(f"{details['color']}{command:<10}{Style.RESET_ALL} - {details['desc']}") 
+        print(f"{details['color']}{command:<10}{Style.RESET_ALL} - {details['desc']}")
     print()
 
 def ls():
@@ -68,7 +68,7 @@ def ls():
     Lists the files in the current working directory.
     """
     err_code, dirlist = file_func.ls()  # Call `ls()` from `file_func` to get files
-    if err_code == 0:
+    if not err_code:
         list(map(print, dirlist))  # Print the files in the directory
     else: # Error if `ls` failed
         print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} The command failed to run")
@@ -78,11 +78,11 @@ def fwrite():
     Writes text to a specified file based on user input and natural language processing.
     """
     usr_input = input("Enter the text you want to write and the file name in natural language:\n")
-    err_code, file_name, input_text = llmAPI.NatLangParser(usr_input)  # Parse the input using LLM API
+    err_code, file_name, input_text = llmAPI.NatLangParser(usr_input) # Parse input using an LLM
     if err_code == -2: # Handle API KEY not found
-        print(f"{Fore.RED}[ERROR] {Style.RESET_ALL}Gemini API Key not found. Check README for more info.")
-
-    if err_code == 0:
+        print(f"{Fore.RED}[ERROR] {Style.RESET_ALL}Gemini API Key not found. "
+                "Check README for more info.")
+    if not err_code:
         err_code, err_txt = file_func.fwrite(file_name, input_text)  # Write the parsed text to file
         if err_code == -1:
             print(f"{Fore.RED}[ERROR] {Style.RESET_ALL}" + err_txt)  # Handle file writing errors
