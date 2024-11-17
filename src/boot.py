@@ -1,9 +1,10 @@
 """"
 This module displays the boot screen for the main program
 """
+import sys
+
 from colorama import Fore, Style, init
 import animation
-import sys
 
 def boot():
     """ Outputs the boot sequence """
