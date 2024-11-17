@@ -1,6 +1,8 @@
 """"
 This module displays the boot screen for the main program
 """
+import sys
+
 from colorama import Fore, Style, init
 import animation
 
@@ -23,8 +25,8 @@ def boot():
             animation.progress(message="Loading system components")
             print()  # New line after progress bar
             return
-        elif cbt in ['n', 'no']:
+        if cbt in ['n', 'no']:
             print(f"\n{Fore.RED}[ABORT]{Style.RESET_ALL} Boot sequence aborted")
-            exit()
+            sys.exit()
         else:
             print(f"{Fore.RED}Invalid input. Please enter Y or N{Style.RESET_ALL}")
