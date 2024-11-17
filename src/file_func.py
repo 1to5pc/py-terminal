@@ -6,7 +6,15 @@ def ls(directory='.'):
     """ Returns the list of files in the working directory"""
     import os
     if os.path.isdir(directory):
-        file_names = list(map(lambda file: file, filter(lambda f: os.path.isfile(os.path.join(directory, f)), os.listdir(directory))))
+        file_names = list(
+            map(
+                lambda file: file, 
+                filter(
+                    lambda f: os.path.isfile(os.path.join(directory, f)), 
+                    os.listdir(directory)
+                )
+            )
+        )
         return 0, file_names
     return 1, []
 
