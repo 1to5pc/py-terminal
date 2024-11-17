@@ -3,7 +3,6 @@
 import time
 import sys
 import itertools
-import threading
 
 def progress(AnimTime=0.7, message="Loading", width=30):
     """Enhanced progress bar with message and percentage"""

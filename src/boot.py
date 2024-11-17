@@ -1,5 +1,4 @@
 #boot Sequence
-import time
 from colorama import Fore, Style, init
 import animation
 
