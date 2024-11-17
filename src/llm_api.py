@@ -1,11 +1,12 @@
 """
 This module defines all functions related to LLM functions
 """
-import google.generativeai as genai
 import os
 import json
 
-def natlang_parser(userInput):
+import google.generativeai as genai
+
+def natlang_parser(user_import):
     """ Uses the Gemini API to extract  a filename and text from a user input string """
 
     try:
@@ -25,7 +26,7 @@ def natlang_parser(userInput):
 
     output = {"file_name": str, "text": str}
 
-    Parse this input and return it in the format above: """ + userInput
+    Parse this input and return it in the format above: """ + user_import
 
     response = model.generate_content(prompt)
     content = response.text.replace("`","").replace("json","")
