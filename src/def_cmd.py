@@ -9,7 +9,7 @@ from colorama import Fore, Style  # For cross-platform colored output
 
 import animation
 import file_func
-import llmAPI
+import llm_api
 
 def clear_screen(slptime=0):
     """
@@ -78,7 +78,7 @@ def fwrite():
     Writes text to a specified file based on user input and natural language processing.
     """
     usr_input = input("Enter the text you want to write and the file name in natural language:\n")
-    err_code, file_name, input_text = llmAPI.NatLangParser(usr_input) # Parse input using an LLM
+    err_code, file_name, input_text = llm_api.natlang_parser(usr_input) # Parse input using an LLM
     if err_code == -2: # Handle API KEY not found
         print(f"{Fore.RED}[ERROR] {Style.RESET_ALL}Gemini API Key not found. "
                 "Check README for more info.")
