@@ -10,12 +10,12 @@ def ls(directory='.'):
         return 0, file_names
     return 1, []
 
-def fwrite(fName,text):
+def fwrite(f_name,text):
     """ Writes a string to a user specified file"""
 #    import os
-#    if os.path.isfile(fName):
+#    if os.path.isfile(f_name):
     try:
-        file = open(fName, 'w')
+        file = open(f_name, 'w')
         try:
             file.write(text)
             return 0, ''
