@@ -1,10 +1,10 @@
+from colorama import Fore, Style, init  # For cross-platform colored output
 import time
 import os
 import animation
 import boot
 import fileFunc
 import llmAPI
-from colorama import Fore, Style, init  # For cross-platform colored output
 
 # Initialize colorama
 init()
