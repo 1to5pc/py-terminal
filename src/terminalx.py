@@ -1,3 +1,6 @@
+"""
+This module is the main program used to call all other subprograms
+"""
 from colorama import Fore, Style, init  # For cross-platform colored output
 
 import boot
@@ -17,12 +20,13 @@ COMMANDS = {
 }
 
 def main():
+    """ The main function called to initialize the program"""
     cmdDef.clear_screen()
     boot.boot()
     cmdDef.clear_screen(0.3)
     print(f"{Fore.CYAN}Welcome to Terminalx{Style.RESET_ALL}")
     print("This is a 'terminal emulator' in Python")
-    
+
     while True:
         try:
             cmd = input(f"{Fore.GREEN}➜ {Style.RESET_ALL}").strip().lower()
@@ -33,7 +37,7 @@ def main():
                 cmdDef.help(COMMANDS)
             else:
                 cmdDef.unknown_cmd(cmd)
-                
+
         except KeyboardInterrupt:
             cmdDef.clear_screen()
             cmdDef.prgmExit()

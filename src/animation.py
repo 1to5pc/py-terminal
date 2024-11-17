@@ -1,12 +1,13 @@
-# Animation
-#!/usr/bin/env python
+""""
+This module includes all functions that are used for animations.
+"""
 import time
 import sys
 import itertools
 
 def progress(AnimTime=0.7, message="Loading", width=30):
     """Enhanced progress bar with message and percentage"""
-    
+
     for i in range(101):  # Loop through 0-100 (percent values)
         filled = width * i // 100  # Calculate filled portion of the bar
         bar = '█' * filled + '░' * (width - filled)  # Create the progress bar
@@ -17,11 +18,11 @@ def progress_spinner(duration, message="Processing"):
     """New spinning cursor animation"""
     spinner = itertools.cycle(['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'])
     end_time = time.time() + duration
-    
+
     while time.time() < end_time:
         sys.stdout.write(f'\r{message} {next(spinner)} ')
         sys.stdout.flush()
         time.sleep(0.1)
-    
+
     sys.stdout.write('\r' + ' ' * (len(message) + 2) + '\r')
     sys.stdout.flush()

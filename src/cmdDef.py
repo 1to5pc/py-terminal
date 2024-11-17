@@ -1,3 +1,6 @@
+"""
+This module stores all command that will be called from the main program
+"""
 import time
 import os
 import sys
@@ -56,8 +59,8 @@ def help(COMMANDS):
         COMMANDS (dict): Dictionary of available commands.
     """
     print(f"\n{Fore.CYAN}Available Commands:{Style.RESET_ALL}")
-    for command, details in COMMANDS.items():
-        print(f"{details['color']}{command:<10}{Style.RESET_ALL} - {details['desc']}")  # List each command with color
+    for command, details in COMMANDS.items(): # List each command
+        print(f"{details['color']}{command:<10}{Style.RESET_ALL} - {details['desc']}") 
     print()
 
 def ls():
@@ -67,8 +70,8 @@ def ls():
     errCode, dirlist = fileFunc.ls()  # Call `ls()` from `fileFunc` to get files
     if errCode == 0:
         list(map(print, dirlist))  # Print the files in the directory
-    else:
-        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} The command failed to run")  # Error if `ls` failed
+    else: # Error if `ls` failed
+        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} The command failed to run")
 
 def fwrite():
     """
@@ -76,8 +79,8 @@ def fwrite():
     """
     usrInput = input("Enter the text you want to write and the file name in natural language:\n")
     errCode, fileName, inputText = llmAPI.NatLangParser(usrInput)  # Parse the input using LLM API
-    if errCode == -2:
-        print(f"{Fore.RED}[ERROR] {Style.RESET_ALL}Gemini API Key not found. Check README for more info.")  # Handle API KEY not found
+    if errCode == -2: # Handle API KEY not found
+        print(f"{Fore.RED}[ERROR] {Style.RESET_ALL}Gemini API Key not found. Check README for more info.")
 
     if errCode == 0:
         errCode, errTxt = fileFunc.fwrite(fileName, inputText)  # Write the parsed text to file
