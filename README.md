@@ -46,8 +46,8 @@ A modern, lightweight terminal emulator built in Python with a sleek interface a
    $env:GEMINI_APIKEY="######YOURAPIKEY######"
    ```
    
-> [!note]
 > To get a Gemini API Key go to [Google AI Studio](https://aistudio.google.com/app/apikey)
+
 ## 💻 Available Commands
 
 | Command | Description |
@@ -59,7 +59,6 @@ A modern, lightweight terminal emulator built in Python with a sleek interface a
 | `clear` | Clear the terminal screen |
 | `exit`  | Exit Terminalx |
 
-> [!note]
 > `fwrite` uses the Gemini API and due the nature of LLMs its output may be unreliable
 
 ## 🤝 Contributing
