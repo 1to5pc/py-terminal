@@ -3,6 +3,7 @@ This module displays the boot screen for the main program
 """
 from colorama import Fore, Style, init
 import animation
+import sys
 
 def boot():
     """ Outputs the boot sequence """
@@ -25,6 +26,6 @@ def boot():
             return
         if cbt in ['n', 'no']:
             print(f"\n{Fore.RED}[ABORT]{Style.RESET_ALL} Boot sequence aborted")
-            exit()
+            sys.exit()
         else:
             print(f"{Fore.RED}Invalid input. Please enter Y or N{Style.RESET_ALL}")
