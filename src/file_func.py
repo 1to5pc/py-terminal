@@ -2,9 +2,10 @@
 This module includes functions that deal with file handling
 """
 
+import os
+
 def ls(directory='.'):
     """ Returns the list of files in the working directory"""
-    import os
     if os.path.isdir(directory):
         file_names = list(
             map(
@@ -23,13 +24,11 @@ def fwrite(f_name,text):
 #    import os
 #    if os.path.isfile(f_name):
     try:
-        file = open(f_name, 'w')
-        try:
-            file.write(text)
-            return 0, ''
-        except:
-            return -1, 'Error writing to file'
-    except:
-        return -1, 'Error opening file'
-    finally:
-        file.close()
+        with open(f_name, 'w', encoding='utf-8') as file:
+            try:
+                file.write(text)
+                return 0, ''
+            except Exception as e:
+                return -1, f"Error writing to file: {str(e)}"
+    except Exception as e:
+        return -1, f"Error opening file: {str(e)}"
