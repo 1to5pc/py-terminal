@@ -2,8 +2,10 @@ def NatLangParser(userInput):
     import google.generativeai as genai
     import os
     import json
-
-    genai.configure(api_key=os.environ["GEMINI_APIKEY"])
+    try:
+        genai.configure(api_key=os.environ["GEMINI_APIKEY"])
+    except KeyError:
+        return -2, "", ""
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
     prompt = """Convert the final input into this format (where "text" refers to the content you want to write, and "file_name" refers to the file name):
     Example 1: Input: "write this is a note to myfile.txt"
