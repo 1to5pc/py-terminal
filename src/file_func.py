@@ -9,9 +9,9 @@ def ls(directory='.'):
     if os.path.isdir(directory):
         file_names = list(
             map(
-                lambda file: file, 
+                lambda file: file,
                 filter(
-                    lambda f: os.path.isfile(os.path.join(directory, f)), 
+                    lambda f: os.path.isfile(os.path.join(directory, f)),
                     os.listdir(directory)
                 )
             )
