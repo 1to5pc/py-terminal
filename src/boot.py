@@ -23,7 +23,7 @@ def boot():
             animation.progress(message="Loading system components")
             print()  # New line after progress bar
             return
-        elif cbt in ['n', 'no']:
+        if cbt in ['n', 'no']:
             print(f"\n{Fore.RED}[ABORT]{Style.RESET_ALL} Boot sequence aborted")
             exit()
         else:
